@@ -1,0 +1,25 @@
+{
+  "github": {
+    "baseUrl": "https://api.github.com",
+    "allowedMethods": ["GET", "POST", "PATCH"],
+    "allowedPaths": ["/user", "/repos/*", "/search/*"],
+    "headers": {
+      "accept": "application/vnd.github+json",
+      "authorization": {
+        "env": "GITHUB_TOKEN",
+        "prefix": "Bearer "
+      }
+    }
+  },
+  "example": {
+    "baseUrl": "https://api.example.com",
+    "allowedMethods": ["GET", "POST"],
+    "allowedPaths": ["/*"],
+    "headers": {
+      "authorization": {
+        "env": "EXAMPLE_API_KEY",
+        "prefix": "Bearer "
+      }
+    }
+  }
+}

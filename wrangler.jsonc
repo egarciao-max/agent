@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "openclaw-cloud-agent",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-04-26",
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "AGENT_SESSIONS",
+        "class_name": "AgentSession"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["AgentSession"]
+    }
+  ],
+  "vars": {
+    "OLLAMA_REMOTE_URL": "http://ollama.oropezas.com",
+    "OLLAMA_MODEL": "qwen3.5:9b",
+    "GEMINI_MODEL": "gemini-3-flash-preview",
+    "ALLOW_AGENT_TOOL_EXECUTION": "false"
+  }
+}

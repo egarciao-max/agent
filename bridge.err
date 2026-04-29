@@ -1,0 +1,17 @@
+node:internal/deps/undici/undici:16416
+      Error.captureStackTrace(err);
+            ^
+
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:16416:13
+    at async proxyJson (file:///C:/Users/Windows/Downloads/agent/local-bridge/server.mjs:234:20) {
+  [cause]: HeadersTimeoutError: Headers Timeout Error
+      at FastTimer.onParserTimeout [as _onTimeout] (node:internal/deps/undici/undici:7505:32)
+      at Timeout.onTick [as _onTimeout] (node:internal/deps/undici/undici:689:17)
+      at listOnTimeout (node:internal/timers:605:17)
+      at process.processTimers (node:internal/timers:541:7) {
+    code: 'UND_ERR_HEADERS_TIMEOUT'
+  }
+}
+
+Node.js v24.13.0
