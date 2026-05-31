@@ -9,7 +9,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding       = "DB"
 database_name = "slp-prospects"
-database_id   = "REPLACE_WITH_D1_DATABASE_ID"
+database_id   = "1eafa768-0db9-4a56-bc9a-9d2aef93891f"
 
 # ── Queues ──────────────────────────────────────────────────────────────────
 [[queues.producers]]
