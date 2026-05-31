@@ -1,9 +1,12 @@
 import { WorkflowEntrypoint, WorkflowEvent, WorkflowStep } from 'cloudflare:workers';
 import type { Env, ProspectParams } from './types';
 
-// ⚠️  ACTUALIZA ESTOS VALORES ANTES DE DESPLEGAR
-const PRECIO_SITIO = '[PRECIO_AQUI]';       // ej: "5,000"
-const PRECIO_ANTICIPO = '[ANTICIPO_AQUI]';  // ej: "2,500" (50% del total)
+const PAQUETES = `
+Opción 1 — Sitio básico:       $3,500 MXN pago único + $300-400/mes mantenimiento
+Opción 2 — Sitio profesional:  $7,500 MXN pago único + $500-600/mes mantenimiento
+Opción 3 — Sitio avanzado:     $12,000 MXN pago único + $800/mes mantenimiento
+Opción 4 — Solución completa:  $17,000 MXN pago único + $3,200/mes mantenimiento
+`.trim();
 
 interface EmailContent {
   subject: string;
@@ -25,14 +28,16 @@ Teléfono: ${prospect.phone || 'No disponible'}
 El email debe:
 1. Saludar de forma profesional haciendo referencia al negocio por nombre
 2. Mencionar que notaste que no tienen sitio web en internet
-3. Explicar beneficios concretos de tener presencia web: más clientes, aparecer en Google, disponible 24/7, credibilidad
-4. Ofrecer un sitio web profesional por $${PRECIO_SITIO} MXN (pago único, sin mensualidades)
-5. Indicar que se requiere un anticipo del 50% = $${PRECIO_ANTICIPO} MXN para iniciar el proyecto
-6. Incluir los datos de pago: CLABE interbancaria 014700400054513316
-7. Mencionar que el sitio queda listo en 7 días hábiles
-8. Invitar a responder el email o llamar para resolver dudas
-9. Ser conversacional, cálido y persuasivo; máximo 280 palabras
-10. Firmar como "Equipo Web SLP" de "ai.dev.oropezas.com"
+3. Explicar 2-3 beneficios concretos adaptados a su categoría (ej: restaurante → reservas online, taller → clientes buscan en Google, etc.)
+4. Presentar los paquetes disponibles de forma clara y concisa:
+${PAQUETES}
+5. Recomendar la Opción 1 como punto de entrada ideal para comenzar
+6. Indicar que se requiere un anticipo del 50% del paquete elegido para iniciar
+7. Incluir los datos de pago: CLABE interbancaria 014700400054513316
+8. Mencionar que el sitio queda listo en 7 días hábiles
+9. Invitar a responder el email para elegir el paquete y resolver dudas
+10. Ser conversacional, cálido y persuasivo; máximo 320 palabras
+11. Firmar como "Equipo Web SLP" de "ai.dev.oropezas.com"
 
 Responde ÚNICAMENTE con un objeto JSON válido, sin texto adicional antes ni después:
 {"subject": "asunto aquí", "body": "cuerpo del email aquí con saltos de línea como \\n"}`;
