@@ -2,10 +2,10 @@ import { WorkflowEntrypoint, WorkflowEvent, WorkflowStep } from 'cloudflare:work
 import type { Env, ProspectParams } from './types';
 
 const PAQUETES = `
-Opción 1 — Sitio básico:       $3,500 MXN pago único + $300-400/mes mantenimiento
-Opción 2 — Sitio profesional:  $7,500 MXN pago único + $500-600/mes mantenimiento
-Opción 3 — Sitio avanzado:     $12,000 MXN pago único + $800/mes mantenimiento
-Opción 4 — Solución completa:  $17,000 MXN pago único + $3,200/mes mantenimiento
+Opción 1 — Landing:        $3,500 MXN pago único + $300-400/mes mantenimiento
+Opción 2 — Sitio completo: $7,500 MXN pago único + $500-600/mes mantenimiento
+Opción 3 — Ecommerce:      $12,000 MXN pago único + $800/mes mantenimiento
+Opción 4 — Backend:        $17,000 MXN pago único + $3,200/mes mantenimiento
 `.trim();
 
 interface EmailContent {
