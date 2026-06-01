@@ -72,11 +72,13 @@ interface TextSearchResponse {
   results: PlaceSummary[];
   next_page_token?: string;
   status: string;
+  error_message?: string;
 }
 
 interface PlaceDetailsResponse {
   result?: PlaceDetails;
   status: string;
+  error_message?: string;
 }
 
 async function searchPlaces(
@@ -96,7 +98,7 @@ async function searchPlaces(
   const data = (await res.json()) as TextSearchResponse;
 
   if (data.status !== 'OK' && data.status !== 'ZERO_RESULTS') {
-    throw new Error(`Places Text Search error: ${data.status}`);
+    throw new Error(`Places Text Search error: ${data.status}${data.error_message ? ` — ${data.error_message}` : ''}`);
   }
 
   return {
