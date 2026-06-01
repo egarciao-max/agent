@@ -1,0 +1,29 @@
+name            = "slp-prospector"
+main            = "src/index.ts"
+compatibility_date  = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ── D1 ─────────────────────────────────────────────────────────────────────
+# After running: wrangler d1 create slp-prospects
+# paste the returned database_id below.
+[[d1_databases]]
+binding       = "DB"
+database_name = "slp-prospects"
+database_id   = "1eafa768-0db9-4a56-bc9a-9d2aef93891f"
+
+# ── Queues ──────────────────────────────────────────────────────────────────
+[[queues.producers]]
+binding = "PROSPECT_QUEUE"
+queue   = "prospect-queue"
+
+[[queues.consumers]]
+queue             = "prospect-queue"
+max_batch_size    = 1
+max_batch_timeout = 30
+max_retries       = 3
+
+# ── Workflows ───────────────────────────────────────────────────────────────
+[[workflows]]
+binding    = "PROSPECT_WORKFLOW"
+name       = "prospect-workflow"
+class_name = "ProspectWorkflow"
