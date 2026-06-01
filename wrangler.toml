@@ -4,7 +4,7 @@ compatibility_date  = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
 
 # ── D1 ─────────────────────────────────────────────────────────────────────
-# After running: wrangler d1 create slp-prospects
+# After running : wrangler d1 create slp-prospects
 # paste the returned database_id below.
 [[d1_databases]]
 binding       = "DB"
